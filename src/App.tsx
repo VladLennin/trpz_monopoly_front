@@ -21,8 +21,6 @@ const App: FC = () => {
                 navigate(res.pathname)
             })
         }
-
-
     }, [])
 
 
