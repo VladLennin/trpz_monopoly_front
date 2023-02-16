@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.bebas-font {
+    font-family: 'Bebas Neue';
+}
+
+.oxygen-font {
+    font-family: 'Oxygen';
+}
+
+html {
+    background: #111827;
+}
+
