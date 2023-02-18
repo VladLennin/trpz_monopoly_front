@@ -43,7 +43,7 @@ const Wrapper: FC<WrapperProps> = ({children}) => {
                             </button>
                         </li>
                         <li>
-                            <Link to={RoutesName.FRIENDS_PAGE} className="mr-4 hover:underline md:mr-6 ">Fiends</Link>
+                            <Link to={RoutesName.FRIENDS_PAGE} className="mr-4 hover:underline md:mr-6 ">Friends</Link>
                         </li>
                         <li>
                             <button className="mr-4 hover:underline md:mr-6 " onClick={() => {

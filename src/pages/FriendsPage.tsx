@@ -5,6 +5,7 @@ import {IUser} from "../models/IUser";
 import {Spinner} from "flowbite-react";
 import UserCard from "../components/UserCard";
 import FriendsService from "../services/FriendsService";
+import {IFriendRequest} from "../models/IFriendRequest";
 
 const FriendsPage = () => {
 
@@ -12,6 +13,7 @@ const FriendsPage = () => {
     const [users, setUsers] = useState<IUser[]>()
     const [loadingUsers, setLoadingUsers] = useState<boolean>(true)
     const [friends, setFriends] = useState<IUser[]>([])
+    const [requests, setRequest] = useState<IFriendRequest[]>([])
 
     useEffect(() => {
         UserService.fetchUsers().then(response => {
@@ -23,24 +25,34 @@ const FriendsPage = () => {
         })
 
         FriendsService.getFriends(store.user.email).then(res => {
-            console.log(res.data)
-            setFriends(res.data)
+            console.log(res.data.friends)
+            setFriends(res.data.friends)
         }).catch(err => {
-
+            console.log(err)
         }).finally(() => {
 
         })
+
+        FriendsService.getRequests(store.user.email).then(res => {
+            setRequest(res.data)
+            console.log(res.data)
+        }).catch(err => {
+            console.log(err)
+        }).finally(() => {
+
+        })
+
     }, [])
     return (
 
-        <div className={"grid  grid-cols-12 w-full"}>
+        <div className={"grid  grid-cols-12 gap-3 w-full"}>
             <div className={"col-span-2 border-r-2 border-gray-600 pr-4"}>
                 <div className={"bebas-font text-xl text-gray-500 text-center  border-b-2 border-gray-600"}>
                     Friends
                 </div>
                 <div>
                     {
-                        friends?.map((friend,index) =>
+                        friends?.map((friend, index) =>
                             (
                                 <div key={index}>
                                     <p> {friend.email}</p>
@@ -50,7 +62,25 @@ const FriendsPage = () => {
                 </div>
 
             </div>
-            <div className={"col-span-10 "}>
+
+            <div className={"col-span-2 border-r-2 border-gray-600 pr-4"}>
+                <div className={"bebas-font text-xl text-gray-500 text-center  border-b-2 border-gray-600"}>
+                    Requests
+                </div>
+                <div>
+                    {
+                        requests?.map((req, index) =>
+                            <div key={index}>
+                                <>
+                                    {req.from}
+                                </>
+                            </div>
+                        )
+                    }
+                </div>
+
+            </div>
+            <div className={"col-span-8 "}>
                 <div className={"flex justify-center"}>
                     <input type="text" className={"w-1/2 rounded border-2 dark:bg-gray-800 bg-white dark:text-white"}/>
                     <button className={"ml-4 text-3xl hover:scale-110 duration-150"}>
