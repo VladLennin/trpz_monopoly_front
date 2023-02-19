@@ -51,14 +51,14 @@ const FriendsPage = () => {
                     Friends
                 </div>
                 <div>
-                    {
-                        friends?.map((friend, index) =>
-                            (
-                                <div key={index}>
-                                    <p> {friend.email}</p>
-                                </div>)
-                        )
-                    }
+                    {/*{*/}
+                    {/*    friends?.map((friend, index) =>*/}
+                    {/*        (*/}
+                    {/*            <div key={index}>*/}
+                    {/*                <p> {friend.email}</p>*/}
+                    {/*            </div>)*/}
+                    {/*    )*/}
+                    {/*}*/}
                 </div>
 
             </div>
@@ -68,15 +68,15 @@ const FriendsPage = () => {
                     Requests
                 </div>
                 <div>
-                    {
-                        requests?.map((req, index) =>
-                            <div key={index}>
-                                <>
-                                    {req.from}
-                                </>
-                            </div>
-                        )
-                    }
+                    {/*{*/}
+                    {/*    requests?.map((req, index) =>*/}
+                    {/*        <div key={index}>*/}
+                    {/*            <>*/}
+                    {/*                {req.from}*/}
+                    {/*            </>*/}
+                    {/*        </div>*/}
+                    {/*    )*/}
+                    {/*}*/}
                 </div>
 
             </div>
