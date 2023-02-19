@@ -59,6 +59,7 @@ const FriendsPage = () => {
                     {/*            </div>)*/}
                     {/*    )*/}
                     {/*}*/}
+                    Some changing for test Git
                 </div>
 
             </div>
